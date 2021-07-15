@@ -4,7 +4,7 @@ from copy import copy
 from datetime import datetime, timedelta
 from textwrap import dedent
 from time import time
-from typing import Dict, Union
+from typing import Dict, Union, Optional
 
 import numpy as np
 import requests as httpx
@@ -100,7 +100,7 @@ async def _ensure_initialized():
 
 
 @app.get("/", tags=["public"])
-async def get_query_page(request: Request):
+async def get_query_page(request: Request, ext_id: Optional[str] = None):
     """
     Load the query page and present a "triplet query".
     """
@@ -109,6 +109,7 @@ async def get_query_page(request: Request):
     puid = sha256(uid)[:16]
     items = {
         "puid": puid,
+        "ext_id": ext_id,
         "instructions": exp_config["instructions"],
         "targets": exp_config["targets"],
         "max_queries": exp_config["max_queries"],
