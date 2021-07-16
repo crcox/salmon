@@ -134,7 +134,7 @@ var head = -1;
 var left = -1;
 var right = -1;
 var puid = $("#puid").html();
-var ext_id = $("#ext_id").html();
+var ext_id = "{{ ext_id }}"
 var targets = {{ targets | safe }};
 var prev_queries = [];
 function getTime(){
@@ -177,6 +177,7 @@ async function send(winner, id) {
           "right": right,
           "winner": winner,
           "puid": puid,
+          "ext_id": ext_id,
           "response_time": response_time,
           "network_latency": latency,
           "score": score,

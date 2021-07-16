@@ -23,6 +23,7 @@ class Answer(BaseModel):
     alg_ident: str
     score: float = 0
     puid: str = ""
+    ext_id: str = ""
     response_time: float = -1
     network_latency: float = -1
 
