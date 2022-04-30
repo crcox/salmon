@@ -1,0 +1,6 @@
+instructions: ""
+debrief: "Thank you!"
+max_queries: 10
+samplers:
+  RandomSampling: {}
+css: '#target-text {display: none !important;} #comparison-text {display: none !important;} #q-head {border-style: none; margin-bottom: 0px}'
